@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
-import uploadConfig from '../config/upload';
-import AppError from '../errors/AppError'
-import User from '../models/User';
+import uploadConfig from '@config/upload';
+import AppError from '@shared/errors/AppError'
+import User from '../infra/typeorm/entities/User';
 import path from 'path';
 import fs from 'fs';
 
@@ -26,10 +26,10 @@ class UpdatedUserAvatarService{
 
     //Verifica se o usuário ja tinha um avatar, daí deletamos.
     if(user.avatar){
-      //Buscamos pelo arquivo de avatar do usuário, 
+      //Buscamos pelo arquivo de avatar do usuário,
       //escolhemos onde será salvo, e qual o avatar que deverá ser removido.
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar)
-      
+
       //Verificamos se o arquivo existe
       //Aqui usamos o fs do Node como promisse e co a função stat
       //verificamos o status do arquivo, porém, só se ele existir

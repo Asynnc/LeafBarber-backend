@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm'
 import { parseISO } from 'date-fns';
-import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import CreateAppointmentService from '../services/CreateAppointmentService';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import AppointmentsRepository from '../../repositories/AppointmentsRepository';
+import CreateAppointmentService from '../../services/CreateAppointmentService';
+import ensureAuthenticated from '../../../../shared/infra/http/middlewares/ensureAuthenticated';
 
 const appointmentsRouter = Router();
 
@@ -12,7 +12,7 @@ const appointmentsRouter = Router();
 appointmentsRouter.use(ensureAuthenticated)
 //Rota para obter agendamentos
 appointmentsRouter.get('/', async (request: any, response: Response) => {
-  
+
   // console.log(request.user.id)
 
   //Pegamos um repositório para funções personalizadas
