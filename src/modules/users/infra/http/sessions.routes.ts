@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import AuthenticateUserService from '../services/AuthenticateUserService';
+import AuthenticateUserService from '../../services/AuthenticateUserService';
 const sessionsRouter = Router();
 
 //Rota responsável por criar um usuário

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
-import AuthConfig from '../config/auth';
-import AppError from '../errors/AppError'
+import AuthConfig from '../../../../config/auth';
+import AppError from '../../../errors/AppError'
 
 interface TokenPayload{
   iat: number;
@@ -19,7 +19,7 @@ export default function ensureAuthenticated(request: any, response: Response, ne
   }
   //Separa o Bearer do token com a desestruturação
   const [, token] = authHeader.split(' ')
-  
+
   try {
     //Verifica se o token é válido
     const decoded = verify(token, AuthConfig.jwt.secret);
