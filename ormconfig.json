@@ -4,7 +4,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "123546",
-  "database": "appBarber",
+  "database": "codeworking",
   "entities": [
     "./src/modules/**/infra/typeorm/entities/*.ts"
   ],
